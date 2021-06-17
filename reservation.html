@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/reservation.css">
+  <link rel="shortcut icon" href="images/utensil.png">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="scripts/index.js"></script>
+  <title>Mangiare</title>
+</head>
+<body>
+  <div class="container-fluid px-0 reservation">
+    <header>
+      <div class="row px-0">
+        <div class="col-12">
+          <nav class="navbar navbar-expand-lg navbar-dark nav-bar-bg">
+            <a class="navbar-brand text-light" href="index.html"><p class="h1">Mangiare</p></a>
+
+            <button class="navbar-toggler btn-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="order.html">Order</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="reservation.html">Reservation <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="access.html">Access</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <button id="btn-login" class="nav-link" data-toggle="modal" data-target="#login-modal">Login</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+  
+      <!--Login modal -->
+      <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+  
+            <div class="modal-body">
+              <form id="form-login">
+                <div class="form-group">
+                  <label for="input-email">Email address</label>
+                  <input type="email" class="form-control" id="input-email" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+  
+                <div class="form-group">
+                  <label for="input-password">Password</label>
+                  <input type="password" class="form-control" id="input-password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <h1 class="ml-4 text-light">Reservation</h1>
+        <form>
+          <fieldset class="information my-4">
+              <legend>Enter Your Information</legend>
+
+              <div class="row my-4 align-items-center justify-content-md-between">
+                <div class="col-12 col-md-4 col-lg-2">
+                  <label for="name">Full Name</label>
+                </div>
+                <div class="col-12 col-md-8">
+                  <input
+                    id="name" 
+                    class="form-control"
+                    type="text"
+                    placeholder="John Doe"
+                  />
+                </div>
+              </div>
+
+              <div class="row my-4 align-items-center justify-content-md-between">
+                <div class="col-12 col-md-4 col-lg-2">
+                  <label for="name">Email</label>
+                </div>
+                <div class="col-12 col-md-8">
+                  <input
+                    id="email"
+                    class="form-control"
+                    type="email"
+                    placeholder="ABC@email.com"
+                  />
+                </div>
+              </div>
+
+              <div class="row my-4 align-items-center justify-content-md-between">
+                <div class="col-12 col-md-4 col-lg-2">
+                  <label for="name">Phone Number</label>
+                </div>
+                <div class="col-12 col-md-8">
+                  <input
+                    id="phoneNo"
+                    class="form-control"
+                    type="tel"
+                    placeholder="000-000-0000"
+                  />
+                </div>
+              </div>
+          </fieldset>
+
+          <fieldset class="details">
+              <legend>Enter Details</legend>
+
+              <div class="row my-4 align-items-center justify-content-md-between">
+                <div class="col-12 col-md-4 col-lg-2">
+                  <label for="num"># of people</label>
+                </div>
+                <div class="col-12 col-md-8">
+                  <input 
+                    id="num"
+                    class="form-control"
+                    type="number"
+                    min=1
+                    max=20
+                  />
+                </div>
+              </div>
+
+              <div class="row my-4 align-items-center justify-content-md-between">
+                <div class="col-12 col-md-4 col-lg-2">
+                  <label for="date">Date</label>
+                </div>
+                <div class="col-12 col-md-8 col-lg-offset-2 col-lg-8">
+                  <div class="input-group date">
+                    <input id="date" type="text" class="form-control" placeholder="dd/mm/yyyy">
+                    <span class="input-group-addon">
+                      <i class="glyphicon glyphicon-th"></i>
+                    </span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row my-4 align-items-center justify-content-md-between">
+                <div class="input-group col-12">
+                  <div class="input-group-prepend">
+                    <label class="input-group-text" for="location">Location</label>
+                  </div>
+                  <select class="custom-select" id="location">
+                    <option selected>Choose...</option>
+                    <option value="downtown">Downtown, Vancouver</option>
+                    <option value="burnaby">Kingsway, Burnaby</option>
+                    <option value="richmond">Thorpe Road, Richmond</option>
+                  </select>
+                </div>
+              </div>
+          </fieldset>
+          <div class="form-button button-submit">
+            <button type="submit">Submit</button>
+          </div>
+        </form>
+      </main>
+
+      <footer class="text-light px-4">
+        <p>&copy; 2020, Mangiare italian restaurant</p>
+        <p>For education purpose only</p>
+        <p>Photo by <a href="https://pixabay.com/">pixabay</a>, <a href="www.unsplash.com">Unsplash</a></p>
+      </footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.9.0/js/bootstrap-datepicker.min.js"></script>
+<script src="scripts/datepicker.js" defer></script>
+</body>
+</html>

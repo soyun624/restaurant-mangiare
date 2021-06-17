@@ -1,0 +1,99 @@
+.contact {
+    background: url('../images/restaurant-1343455_1920\ \(1\).jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: 50%;
+    background-attachment: fixed;
+    overflow: scroll;
+    height: 100vh;
+    min-height: 1080px;
+}
+
+main{
+    padding:0 30px;
+    margin:auto;
+    max-width:1440px;
+    display: flex;
+    flex-direction: column;
+    min-height: 640px;
+    padding: 15px;
+}
+
+form.contact-form {
+    min-width: 300px;
+    align-self: center;
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 25px 50px;
+    margin-bottom: 25px;
+    border-radius: 10px;
+    box-shadow: 0 0 1px 1px #000;
+}
+
+form.contact-form input {
+    border: 1px solid #000;
+}
+
+.information input {
+    padding:5px 20px;
+    width:100%;
+}
+fieldset{
+    border:none;
+    border-bottom:1px dashed gray;
+    margin:15px 0;
+}
+legend{
+    border-left:4px solid gray;
+    font-size:20px;
+    padding-left:8px;
+    margin:0;
+}
+
+
+.button-submit{ 
+    clear:both;  
+}
+
+form.contact-form button {
+    font-size:18px;
+    color:white;
+    background-color: black;
+    border:none;
+    padding:10px 15px;
+    border-radius: 5px;
+    float:right;
+}
+
+form.contact-form button:hover{
+    background-color:#333;
+}
+
+form.contact-form button:active{
+    background-color:#555;
+}
+
+form.contact-form input {
+    width: 100%;
+    border-color: #ddd;
+}
+form.contact-form textarea{
+    width: 100%;
+    border: none;
+}
+@media(min-width: 768px) {
+    main {
+        height: 80%;
+        margin-bottom: 20px;
+    }
+
+    form {
+        width: 100%;
+        max-width: 991px;
+    }
+
+    label { margin-bottom: 0 }
+
+    label, input {
+        font-size: 1.2rem;
+    }
+}

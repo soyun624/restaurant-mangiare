@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
+  <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700;900&family=Roboto:wght@400;700;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles/style.css">
+  <link rel="stylesheet" href="styles/order.css">
+  <link rel="shortcut icon" href="images/utensil.png">
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+  <script src="scripts/index.js"></script>
+  <title>Mangiare</title>
+</head>
+<body>
+
+  <div class="container-fluid px-0 order">
+    <header>
+      <div class="row px-0">
+        <div class="col-12">
+          <nav class="navbar navbar-expand-lg navbar-dark nav-bar-bg">
+            <a class="navbar-brand text-light" href="index.html"><p class="h1">Mangiare</p></a>
+
+            <button class="navbar-toggler btn-dark" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                  <a class="nav-link" href="index.html">Home</a>
+                </li>
+                <li class="nav-item active">
+                  <a class="nav-link" href="order.html">Order <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="reservation.html">Reservation</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="access.html">Access</a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="contact.html">Contact</a>
+                </li>
+                <li class="nav-item">
+                  <button id="btn-login" class="nav-link" data-toggle="modal" data-target="#login-modal">Login</button>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </div>
+
+      <!--Login modal -->
+      <div class="modal fade" id="login-modal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="loginModalLabel">Login</h5>
+              <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+              </button>
+            </div>
+  
+            <div class="modal-body">
+              <form id="form-login">
+                <div class="form-group">
+                  <label for="input-email">Email address</label>
+                  <input type="email" class="form-control" id="input-email" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+  
+                <div class="form-group">
+                  <label for="input-password">Password</label>
+                  <input type="password" class="form-control" id="input-password">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <h1 class="my-4 ml-4 text-light">Order</h1>
+    <main class="order-wrap">
+      <section class="menu-selection">
+        <article class="menu">
+          <div class="menu-item">
+              <img src="images/salami.jpg" alt="salami">
+              <p class="item-name">Salami salad</p>
+                <p class="item-price">$12.50</p>
+                <button class="btn-add-cart btn btn-primary" data-menu-id="1">
+                  Add to cart
+                </button>
+                <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-4-ingredient" aria-expanded="false" aria-controls="item-4-ingredient">
+                  Ingredients
+                </button>
+                <div id="item-4-ingredient" class="collapse">
+                  <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">Salami</li>
+                    <li class="list-group-item">Egg</li>
+                  </ul>
+                </div>
+          </div>
+        </article>
+        <article class="menu">
+          <div class="menu-item">
+              <img src="images/bruschetta.jpg" alt="bruschetta">
+              <p class="item-name">balsamic bruschetta</p>
+              <p class="item-price">$9.75</p>
+              <button class="btn-add-cart btn btn-primary" data-menu-id="2">
+                Add to cart
+              </button>
+              <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-6-ingredient" aria-expanded="false" aria-controls="item-6-ingredient">
+                Ingredients
+              </button>
+              <div id="item-6-ingredient" class="collapse">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item">Tomato</li>
+                  <li class="list-group-item">Basil</li>
+                  <li class="list-group-item">Garlic</li>
+                  <li class="list-group-item">Balsamic vinegar</li>
+                </ul>
+              </div>
+          </div>
+        </article>
+        <article class="menu">
+            <div class="menu-item">
+                <img src="images/meal.jpg" alt="meal">
+                <p class="item-name">Lasagna Puttanesca</p>
+                <p class="item-price">$12.50</p>
+                <button class="btn-add-cart btn btn-primary" data-menu-id="3">
+                  Add to cart
+                </button>
+                <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-2-ingredient" aria-expanded="false" aria-controls="item-1-ingredient">
+                  Ingredients
+                </button>
+                <div id="item-2-ingredient" class="collapse">
+                  <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">Anchovy</li>
+                    <li class="list-group-item">Tomato</li>
+                    <li class="list-group-item">Braised turnip greens</li>
+                    <li class="list-group-item">Garlic scape</li>
+                  </ul>
+                </div>
+            </div>
+        </article>
+        <article class="menu">
+          <div class="menu-item">
+              <img src="images/beef.jpg" alt="Beef">
+              <p class="item-name">Meat sauce pasta</p>
+              <p class="item-price">$11.40</p>
+              <button class="btn-add-cart btn btn-primary" data-menu-id="4">
+                Add to cart
+              </button>
+              <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-1-ingredient" aria-expanded="false" aria-controls="item-1-ingredient">
+                Ingredients
+              </button>
+              <div id="item-1-ingredient" class="collapse">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item">Classic meat ragu</li>
+                  <li class="list-group-item">parmigiano reggiano</li>
+                </ul>
+              </div>
+          </div>
+        </article>
+        <article class="menu">
+            <div class="menu-item">
+                <img src="images/noodles.jpg" alt="noodles">
+                <p class="item-name">Cherry tomato pasta</p>
+                <p class="item-price">$10.25</p>
+                <button class="btn-add-cart btn btn-primary" data-menu-id="5">
+                  Add to cart
+                </button>
+                <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-3-ingredient" aria-expanded="false" aria-controls="item-3-ingredient">
+                  Ingredients
+                </button>
+                <div id="item-3-ingredient" class="collapse">
+                  <ul class="list-group list-group-horizontal">
+                    <li class="list-group-item">Cherry tomatoes</li>
+                    <li class="list-group-item">Calabrian chili</li>
+                    <li class="list-group-item">Pecorino romano</li>
+                    <li class="list-group-item">Arugula</li>
+                  </ul>
+                </div>
+            </div>
+        </article>
+        <article class="menu">    
+          <div class="menu-item">
+              <img src="images/spaghetti.jpg" alt="spaghetti">
+              <p class="item-name">Garlic shrmip pasta</p>
+              <p class="item-price">$17.25</p>
+              <button class="btn-add-cart btn btn-primary" data-menu-id="6">
+                Add to cart
+              </button>
+              <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-5-ingredient" aria-expanded="false" aria-controls="item-5-ingredient">
+                Ingredients
+              </button>
+              <div id="item-5-ingredient" class="collapse">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item">Spaghetti</li>
+                  <li class="list-group-item">Shrimp</li>
+                  <li class="list-group-item">Garlic</li>
+                  <li class="list-group-item">Arugula</li>
+                  <li class="list-group-item">Parmesan</li>
+                </ul>
+              </div>
+          </div>
+        </article>
+        <article class="menu">
+          <div class="menu-item">
+              <img src="images/creamy-pasta.jpg" alt="creamy-pasta">
+              <p class="item-name">cream sauce pasta</p>
+              <p class="item-price">$16.20</p>
+              <button class="btn-add-cart btn btn-primary" data-menu-id="7">
+                Add to cart
+              </button>
+              <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-7-ingredient" aria-expanded="false" aria-controls="item-7-ingredient">
+                Ingredients
+              </button>
+              <div id="item-7-ingredient" class="collapse">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item">Heavy cream</li>
+                  <li class="list-group-item">Garlic</li>
+                  <li class="list-group-item">Parmesan</li>
+                </ul>
+              </div>
+          </div>
+        </article>
+        <article class="menu">    
+          <div class="menu-item">
+              <img src="images/pizza1.jpg" alt="spaghetti-shrimps">
+              <p class="item-name">margherita pizza</p>
+              <p class="item-price">$20.15</p>
+              <button class="btn-add-cart btn btn-primary" data-menu-id="8">
+                Add to cart
+              </button>
+              <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-8-ingredient" aria-expanded="false" aria-controls="item-8-ingredient">
+                Ingredients
+              </button>
+              <div id="item-8-ingredient" class="collapse">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item">Tomato</li>
+                  <li class="list-group-item">Basil</li>
+                  <li class="list-group-item">Fresh Mozzarella</li>
+                </ul>
+              </div>
+          </div>
+        </article>
+        <article class="menu">
+          <div class="menu-item">
+            <img src="images/pizza2.jpg" alt="pizza2">
+            <p class="item-name">eggplant salad pizza</p>
+              <p class="item-price">$18.15</p>
+              <button class="btn-add-cart btn btn-primary" data-menu-id="9">
+                Add to cart
+              </button>
+              <button class="btn-ingredient btn" type="button" data-toggle="collapse" data-target="#item-9-ingredient" aria-expanded="false" aria-controls="item-9-ingredient">
+                Ingredients
+              </button>
+              <div id="item-9-ingredient" class="collapse">
+                <ul class="list-group list-group-horizontal">
+                  <li class="list-group-item">Cherry tomato</li>
+                  <li class="list-group-item">Eggplant</li>
+                  <li class="list-group-item">Basil</li>
+                </ul>
+              </div>
+          </div>
+        </article>
+      </section>
+
+      <section class="orders">
+        <button id="btn-collapse-orders" class="btn" type="button" data-toggle="collapse" data-target="#orderWrap" aria-expanded="false" aria-controls="orderWrap">
+          Cart(<span id="order-cart">0</span>)
+        </button>
+        <div id="orderWrap" class="collapse">
+          <div class="row">
+            <table class="order-table table">
+            </table>
+          </div>
+
+          <div class="row">
+            <table class="table-total-amount table">
+              <tr>
+                <th scope="col">Subtotal</th>
+                <td><span id="order-subtotal"></span></td>
+              </tr>
+
+              <tr>
+                <th scope="col">Taxs(GST + PST)</th>
+                <td><span id="order-tax"></span></td>
+              </tr>
+
+              <tr>
+                <th scope="col">Total</th>
+                <td><span id="order-total"></span></td>
+              </tr>
+            </table>
+          </div>
+          <button class="checkout">Checkout</button>
+        </div>
+        </section>
+      </main>
+
+    <footer class="text-light px-4 py-2">
+      <p>&copy; 2020, Mangiare italian restaurant</p>
+      <p>For education purpose only</p>
+      <p>Photo by <a href="https://pixabay.com/">pixabay</a>, <a href="www.unsplash.com">Unsplash</a></p>
+    </footer>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
+  <script src="scripts/orderCollapse.js"></script>
+</body>
+</html>

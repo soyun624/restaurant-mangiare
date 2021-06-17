@@ -1,0 +1,144 @@
+/* only for common components */
+
+html {
+  box-sizing: border-box;
+  font-family: 'Nunito', sans-serif;
+}
+
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
+img{
+  max-width: 100%;
+  display:block;
+  object-fit: cover;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: black;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Roboto', sans-serif;
+}
+
+header {
+  height: 80px;
+}
+
+nav{
+  background-color: black;
+
+}
+
+.banner{
+  position: relative;
+}
+
+.banner-title{
+  position: absolute; 
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  left: 50%;
+  top: 40%;
+  z-index: 9;
+  color: white;
+  transform: translate(-50%, -50%);
+  width: 50%;
+
+}
+
+.banner-title img{
+  width: 90%; 
+}
+
+.banner h4{
+  margin-top: 10px;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.banner button{
+  margin-top: 30px;
+  background-color: black;
+  border: white 1px solid;
+  padding: 10px;
+  opacity: 60%;
+}
+
+.banner button a{
+  text-decoration: none;
+  color: orange;
+}
+
+.box{
+  margin: 0 auto;
+  width: 250px;
+  padding: 10px 0;
+  color:white;
+  text-align: center;
+  background-color: rgb(54, 54, 54);
+  font-size: 20px;
+  position: relative;
+}
+
+.main{
+  display: block;
+  padding: 0 50px;
+  color: white;
+
+}
+
+article img{
+  width: 100%;
+  margin-top: 20px;
+}
+
+footer{
+  padding: 10px;
+  margin-bottom: 0;
+  background-color: black;
+  border-top: gray 1px solid;
+}
+
+footer p{
+  margin-left: 20px;
+  margin-bottom: 0;
+
+}
+
+@media(min-width:900px){
+  .story , .about{
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .banner-title{
+    left: 60%;
+    top: 30%;
+    transform: translate(-50%, -40%);
+  }
+
+  .banner h4{
+    font-size: 50px;
+  }
+  article img{
+    width: 40%;
+    margin-top: 100px;
+    
+    
+  }
+
+  article:nth-of-type(2) img{
+    margin-bottom: 25px;
+  }
+
+  article p{
+    font-size: 18px;
+  }
+}
